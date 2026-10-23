@@ -66,6 +66,18 @@ A window named **AI Virtual Mouse** will open and show the webcam feed. Place yo
 | Index and middle fingers raised and apart | Scroll vertically |
 | Press `Esc` in the camera window | Exit the application |
 
+## Live Browser Demo
+
+A browser version is included in [`web-demo/`](./web-demo/). It uses the webcam through the browser and displays a virtual cursor and gesture feedback on the page. It does not control the computer's real mouse, because browsers cannot safely generate OS-level mouse input.
+
+To run it locally, serve the repository over HTTP (camera access is blocked from most local `file://` pages):
+
+```bash
+python -m http.server 8000
+```
+
+Then open [http://localhost:8000/web-demo/](http://localhost:8000/web-demo/) and select **Start camera**. The `web-demo` folder can be deployed directly to Vercel as a static site with no build command.
+
 ## Project Structure
 
 ```text
@@ -74,7 +86,8 @@ A window named **AI Virtual Mouse** will open and show the webcam feed. Place yo
 ├── main.py            # Main virtual mouse application
 ├── utils.py           # Distance and cursor-smoothing utilities
 ├── virtual_mouse.py   # Alternative standalone implementation
-├── requirements.txt   # Python dependencies
+├── web-demo/           # Static browser demo for Vercel
+├── requirements.txt    # Python dependencies
 └── README.md
 ```
 
